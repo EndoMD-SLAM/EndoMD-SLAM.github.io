@@ -1,5 +1,9 @@
 const scrollButton = document.querySelector(".scroll-top");
 
+if (window.lucide) {
+  window.lucide.createIcons();
+}
+
 function syncScrollButton() {
   if (!scrollButton) return;
   scrollButton.classList.toggle("visible", window.scrollY > 480);

@@ -20,28 +20,21 @@
   <link rel="stylesheet" href="static/css/site.css">
 </head>
 <body>
-  <button class="scroll-top" type="button" aria-label="Scroll to top">↑</button>
-
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#top">EndoMD-SLAM</a>
-      <div class="nav-links">
-        <a href="#abstract">Abstract</a>
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#citation">Citation</a>
-      </div>
-    </nav>
-  </header>
+  <button class="scroll-top" type="button" aria-label="Scroll to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
 
   <main id="top">
     <section class="hero-section">
       <div class="container hero-content">
-        <p class="venue-label">Project Page</p>
-        <h1>EndoMD-SLAM</h1>
+        <h1>
+          <span class="title-line">EndoMD-SLAM</span>
+          <span class="title-line">Endoscopic Gaussian Splatting SLAM</span>
+          <span class="title-line">under Optical Degradation</span>
+        </h1>
         <p class="hero-subtitle">
-          Endoscopic Gaussian Splatting SLAM under Optical Degradation with
-          Memory and Static-Transient Decomposition
+          Memory and Static-Transient Decomposition for robust online endoscopic
+          reconstruction and tracking.
         </p>
 
         <div class="authors">
@@ -60,9 +53,22 @@
         </div>
 
         <div class="button-row" aria-label="Project links">
-          <a class="action-button primary" href="static/endomd-slam-paper.pdf">Paper</a>
-          <a class="action-button" href="https://github.com/EndoMD-SLAM">Code</a>
-          <a class="action-button" href="#citation">Cite</a>
+          <a class="action-button primary" href="static/endomd-slam-paper.pdf">
+            <i data-lucide="file-text" aria-hidden="true"></i>
+            <span>Paper</span>
+          </a>
+          <a class="action-button" href="https://github.com/EndoMD-SLAM" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="github" aria-hidden="true"></i>
+            <span>Code</span>
+          </a>
+          <a class="action-button" href="#citation">
+            <i data-lucide="quote" aria-hidden="true"></i>
+            <span>Cite</span>
+          </a>
+          <a class="action-button" href="#demo">
+            <i data-lucide="play-circle" aria-hidden="true"></i>
+            <span>Video</span>
+          </a>
         </div>
 
         <figure class="hero-figure">
@@ -74,12 +80,12 @@
       </div>
     </section>
 
-    <section class="media-section">
+    <section class="media-section" id="demo">
       <div class="container narrow">
         <video class="main-video" autoplay muted loop controls playsinline preload="metadata" poster="static/images/teaser.png">
           <source src="static/videos/demo.mp4" type="video/mp4">
         </video>
-        <p class="media-caption">Online reconstruction and tracking behavior under degraded endoscopic observations.</p>
+        <p class="media-caption">Sequence 01 demo: online reconstruction and tracking behavior under degraded endoscopic observations.</p>
       </div>
     </section>
 
@@ -269,6 +275,7 @@ python scripts/run_endomd_slam.py configs/c3vd/endomd_slam_c3vdv2.py \
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="static/js/site.js"></script>
 </body>
 </html>
