@@ -174,13 +174,6 @@
             </div>
             <figcaption>
               <strong>Qualitative comparison of estimated camera trajectories across diverse colonoscopy sequences.</strong>
-              Under severe lens contamination, the baseline method (blue dashed lines) experiences
-              catastrophic tracking drift and frequent localization failures due to the sudden loss of
-              visual continuity. In contrast, EndoMD-SLAM (red solid lines) maintains robust and
-              accurate pose estimation that tightly aligns with the Ground Truth (black solid lines).
-              By leveraging our temporal memory to gate map updates and perform failure-aware
-              relocalization, our system successfully recovers from highly degraded intervals and
-              prevents long-term trajectory divergence.
             </figcaption>
           </figure>
           <figure>
@@ -189,12 +182,6 @@
             </div>
             <figcaption>
               <strong>Qualitative 3D reconstruction of global colon anatomy under severe lens contamination.</strong>
-              The top row (EndoGSLAM) exhibits catastrophic structural breakdown and geometric
-              distortion caused by the naive fusion of transient artifacts and tracking drift.
-              Conversely, EndoMD-SLAM (middle row) successfully preserves the cohesive 3D anatomy,
-              closely matching the Ground Truth (bottom row). This demonstrates the effectiveness of
-              our memory and decomposition mechanisms in isolating contamination and gating erroneous
-              map updates.
             </figcaption>
           </figure>
         </div>
@@ -211,6 +198,6 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="static/js/site.js"></script>
-  <script type="module" src="static/js/viewer3d.js?v=pointsize-2x"></script>
+  <script type="module" src="static/js/viewer3d.js?v=pointsize-color-2x"></script>
 </body>
 </html>

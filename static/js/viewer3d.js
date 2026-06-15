@@ -303,6 +303,7 @@ class EndoViewer {
     try {
       const geometry = await this.loadPly(sceneMeta.url);
       geometry.computeBoundingBox();
+      this.enhanceVertexColors(geometry);
       const material = new THREE.PointsMaterial({
         size: 0.48,
         vertexColors: true,
@@ -322,6 +323,29 @@ class EndoViewer {
     return new Promise((resolve, reject) => {
       this.loader.load(url, resolve, undefined, reject);
     });
+  }
+
+  enhanceVertexColors(geometry) {
+    const colors = geometry.getAttribute("color");
+    if (!colors) return;
+
+    const data = colors.array;
+    const scale = data instanceof Uint8Array || data instanceof Uint8ClampedArray ? 255 : 1;
+    for (let i = 0; i < data.length; i += 3) {
+      const r = data[i] / scale;
+      const g = data[i + 1] / scale;
+      const b = data[i + 2] / scale;
+      const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+      data[i] = this.clampColor((luma + (r - luma) * 2.45) * 1.13 + 0.035) * scale;
+      data[i + 1] = this.clampColor((luma + (g - luma) * 1.85) * 0.98 + 0.012) * scale;
+      data[i + 2] = this.clampColor((luma + (b - luma) * 1.65) * 0.88) * scale;
+    }
+    colors.needsUpdate = true;
+  }
+
+  clampColor(value) {
+    return Math.max(0, Math.min(1, value));
   }
 
   fitCamera(geometry) {
