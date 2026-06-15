@@ -18,6 +18,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/site.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
   <button class="scroll-top" type="button" aria-label="Scroll to top">
@@ -111,6 +119,26 @@
           severe optical degradation, EndoMD-SLAM preserves geometric integrity, reducing absolute
           trajectory error by 91% and improving rendering fidelity by 9.9 dB PSNR.
         </p>
+      </div>
+    </section>
+
+    <section class="section muted" id="interactive">
+      <div class="container">
+        <h2>Interactive 3D Demo</h2>
+        <p class="section-lead">
+          Explore the c2_cecum_t1_v3 point clouds used for the progressive quad-3D demo. Drag to rotate, scroll to zoom, and toggle layers.
+        </p>
+        <div class="viewer-shell">
+          <div class="viewer-toolbar" aria-label="3D point cloud controls">
+            <button class="viewer-chip active" type="button" data-cloud="c2_cecum_t1_v3-base-static">Base 3D</button>
+            <button class="viewer-chip active" type="button" data-cloud="c2_cecum_t1_v3-ours-static">Ours 3D</button>
+            <button class="viewer-chip" type="button" data-cloud="c2_cecum_t1_v3-ours-transient">Transient</button>
+            <button class="viewer-chip" type="button" data-cloud="c2_cecum_t1_v3-trajectory">Trajectory</button>
+          </div>
+          <div id="viewer3d-root" class="viewer3d-root" role="img" aria-label="Interactive 3D point cloud viewer">
+            <div class="viewer-status">Loading point clouds...</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -338,5 +366,6 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="static/js/site.js"></script>
+  <script type="module" src="static/js/viewer3d.js"></script>
 </body>
 </html>
