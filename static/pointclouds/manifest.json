@@ -1,51 +1,58 @@
 {
-  "clouds": [
+  "scenes": [
     {
-      "key": "gt-sampled",
-      "label": "GT 3D",
-      "url": "static/pointclouds/c2_cecum_t1_v3_gt_sampled.ply",
-      "kind": "gt",
-      "points": 136080,
-      "bytes": 2041380,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/allcontaminationseq/c3vdv2/c2_cecum_t1_v3"
-    },
-    {
-      "key": "base-static",
-      "label": "Base 3D",
-      "url": "static/pointclouds/c2_cecum_t1_v3_base_static.ply",
-      "kind": "static",
+      "id": "c1_cecum_t1_v2",
+      "label": "C1 Cecum",
+      "url": "static/pointclouds/c1_cecum_t1_v2_ours_static.ply",
+      "thumb": "static/images/sequence-thumbs/c1_cecum_t1_v2.jpg",
       "points": 140000,
       "bytes": 2100180,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VD_base/c2_cecum_t1_v3/params.npz"
+      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c1_cecum_t1_v2/params.npz"
     },
     {
-      "key": "ours-static",
-      "label": "Ours 3D",
+      "id": "c1_sigmoid1_t1_v3",
+      "label": "C1 Sigmoid",
+      "url": "static/pointclouds/c1_sigmoid1_t1_v3_ours_static.ply",
+      "thumb": "static/images/sequence-thumbs/c1_sigmoid1_t1_v3.jpg",
+      "points": 140000,
+      "bytes": 2100180,
+      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c1_sigmoid1_t1_v3/params.npz"
+    },
+    {
+      "id": "c2_ascending_t1_v2",
+      "label": "C2 Ascending",
+      "url": "static/pointclouds/c2_ascending_t1_v2_ours_static.ply",
+      "thumb": "static/images/sequence-thumbs/c2_ascending_t1_v2.jpg",
+      "points": 140000,
+      "bytes": 2100180,
+      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_ascending_t1_v2/params.npz"
+    },
+    {
+      "id": "c2_cecum_t1_v3",
+      "label": "C2 Cecum",
       "url": "static/pointclouds/c2_cecum_t1_v3_ours_static.ply",
-      "kind": "static",
-      "points": 150000,
-      "bytes": 2250180,
+      "thumb": "static/images/sequence-thumbs/c2_cecum_t1_v3.jpg",
+      "points": 140000,
+      "bytes": 2100180,
       "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
     },
     {
-      "key": "ours-transient",
-      "label": "Transient",
-      "url": "static/pointclouds/c2_cecum_t1_v3_ours_transient.ply",
-      "kind": "transient",
-      "points": 90000,
-      "bytes": 1350179,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
+      "id": "c2_rectum_t1_v3",
+      "label": "C2 Rectum",
+      "url": "static/pointclouds/c2_rectum_t1_v3_ours_static.ply",
+      "thumb": "static/images/sequence-thumbs/c2_rectum_t1_v3.jpg",
+      "points": 140000,
+      "bytes": 2100180,
+      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_rectum_t1_v3/params.npz"
     },
     {
-      "key": "trajectory",
-      "label": "Trajectory",
-      "url": "static/pointclouds/c2_cecum_t1_v3_trajectory.ply",
-      "kind": "trajectory",
-      "points": 378,
-      "bytes": 5847,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
+      "id": "c2_transverse2_t1_v3",
+      "label": "C2 Transverse",
+      "url": "static/pointclouds/c2_transverse2_t1_v3_ours_static.ply",
+      "thumb": "static/images/sequence-thumbs/c2_transverse2_t1_v3.jpg",
+      "points": 140000,
+      "bytes": 2100180,
+      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_transverse2_t1_v3/params.npz"
     }
-  ],
-  "sequence": "c2_cecum_t1_v3",
-  "video": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VD_c1c2_progressive_quad3d_side_videos/c2_cecum_t1_v3_progressive_quad3d_input_gt_base_ours_side.mp4"
+  ]
 }

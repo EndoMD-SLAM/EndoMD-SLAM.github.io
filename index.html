@@ -36,11 +36,8 @@
     <section class="hero-section">
       <div class="container hero-content">
         <h1>
-          <span class="title-line">EndoMD-SLAM</span>
+          EndoMD-SLAM: Endoscopic Gaussian Splatting SLAM under Optical Degradation
         </h1>
-        <p class="hero-paper-title">
-          Endoscopic Gaussian Splatting SLAM under Optical Degradation
-        </p>
         <p class="hero-subtitle">
           Memory and Static-Transient Decomposition for robust online endoscopic
           reconstruction and tracking.
@@ -127,24 +124,9 @@
       <div class="container">
         <h2>Interactive 3D Demo</h2>
         <p class="section-lead">
-          Compare colored point cloud reconstructions from the c2_cecum_t1_v3 progressive quad-3D demo. Drag to rotate, scroll to zoom.
+          Explore Ours colored point cloud reconstructions across multiple C3VDv2 sequences. Drag to rotate, scroll to zoom.
         </p>
-        <div class="viewer-shell">
-          <div class="viewer-tabs" aria-label="Point cloud selector">
-            <button class="viewer-tab" type="button" data-cloud="c2_cecum_t1_v3-gt-sampled">GT 3D</button>
-            <button class="viewer-tab" type="button" data-cloud="c2_cecum_t1_v3-base-static">Base 3D</button>
-            <button class="viewer-tab active" type="button" data-cloud="c2_cecum_t1_v3-ours-static">Ours 3D</button>
-            <button class="viewer-tab" type="button" data-cloud="c2_cecum_t1_v3-ours-transient">Transient</button>
-            <button class="viewer-tab" type="button" data-cloud="c2_cecum_t1_v3-trajectory">Trajectory</button>
-          </div>
-          <div id="viewer3d-root" class="viewer3d-root" role="img" aria-label="Interactive 3D point cloud viewer">
-            <div class="viewer-overlay">
-              <span>Point cloud reconstruction</span>
-              <strong id="viewer-cloud-name">Ours 3D</strong>
-            </div>
-            <div class="viewer-status">Loading reconstruction...</div>
-          </div>
-        </div>
+        <div id="viewer3d-root" role="img" aria-label="Interactive Ours point cloud viewer"></div>
       </div>
     </section>
 
