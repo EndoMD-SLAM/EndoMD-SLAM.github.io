@@ -61,10 +61,6 @@
             <i data-lucide="github" aria-hidden="true"></i>
             <span>Code</span>
           </a>
-          <a class="action-button" href="#citation">
-            <i data-lucide="quote" aria-hidden="true"></i>
-            <span>Cite</span>
-          </a>
           <a class="action-button" href="#demo">
             <i data-lucide="play-circle" aria-hidden="true"></i>
             <span>Video</span>
@@ -94,19 +90,26 @@
         <h2>Abstract</h2>
         <p>
           Dense 3D reconstruction is critical for clinical endoscopic navigation and documentation.
-          While Gaussian Splatting SLAM systems show promise in this domain, they rely on multi-view
-          photometric consistency, which is severely violated by intermittent optical degradations
-          such as moving debris and water flushing. Standard systems can fuse camera-attached
-          artifacts into persistent 3D geometry, causing tracking drift and irreversible map
-          corruption.
+          While Gaussian Splatting SLAM systems show promise in this domain, they fundamentally rely
+          on strict multi-view photometric consistency. In routine procedures, this assumption is
+          severely violated by intermittent optical degradations like moving debris and water flushing.
+          Standard systems erroneously fuse these camera-attached artifacts into the persistent 3D
+          geometry, causing severe tracking drift and irreversible map corruption.
         </p>
         <p>
-          EndoMD-SLAM maintains stability under optical degradation with two coupled mechanisms:
-          a memory-driven gate that detects unreliable observations, suspends unsafe map updates,
-          and relocalizes from historical keyframes; and a self-supervised static-transient
-          decomposition that absorbs visual contaminants into a transient field while protecting the
-          persistent anatomical map. On a degradation-focused colonoscopy benchmark, EndoMD-SLAM
-          reduces absolute trajectory error by 91% and improves rendering fidelity by 9.9 dB PSNR.
+          To address this limitation, we propose EndoMD-SLAM, a framework designed to maintain
+          stability under optical degradation through specialized tracking and mapping mechanisms.
+          On the tracking side, a memory-driven gating mechanism detects unreliable observations to
+          suspend map updates and utilizes historical keyframes for drift-aware relocalization. On the
+          mapping side, a self-supervised static-transient decomposition isolates visual contaminants
+          into a dedicated transient field. This explicit separation prevents artifacts from
+          structurally entangling with the persistent anatomical map.
+        </p>
+        <p>
+          We curate a degradation-focused benchmark from colonoscopy videos to systematically evaluate
+          these failure modes. Extensive experiments show that while standard baselines fail under
+          severe optical degradation, EndoMD-SLAM preserves geometric integrity, reducing absolute
+          trajectory error by 91% and improving rendering fidelity by 9.9 dB PSNR.
         </p>
       </div>
     </section>
@@ -325,32 +328,6 @@
       </div>
     </section>
 
-    <section class="section" id="quickstart">
-      <div class="container narrow">
-        <h2>Quick Start</h2>
-        <pre><code>conda create -n endomd-slam python=3.10 -y
-conda activate endomd-slam
-pip install -r requirements.txt
-
-python scripts/run_endomd_slam.py configs/c3vd/endomd_slam_c3vdv2.py \
-  --basedir data/C3VDv2 \
-  --sequence c1_cecum_t1_v2 \
-  --workdir outputs/endomd_slam_c3vdv2 \
-  --run_name c1_cecum_t1_v2</code></pre>
-      </div>
-    </section>
-
-    <section class="section muted" id="citation">
-      <div class="container narrow">
-        <h2>Citation</h2>
-        <pre><code>@article{endomdslam2026,
-  title={EndoMD-SLAM: Endoscopic Gaussian Splatting SLAM under Optical Degradation with Memory and Static-Transient Decomposition},
-  author={Chen, Nuo and Ni, Kangqi and Liu, Lulin and Ivatury, Joga and Ding, Ying and Alambeigi, Farshid and Chen, Tianlong and Fan, Zhiwen},
-  journal={Manuscript},
-  year={2026}
-}</code></pre>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
