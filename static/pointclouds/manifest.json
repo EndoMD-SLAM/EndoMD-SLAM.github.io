@@ -3,7 +3,7 @@
     {
       "id": "c1_cecum_t1_v2",
       "label": "c1_cecum_t1_v2",
-      "url": "static/pointclouds/c1_cecum_t1_v2_ours_static.ply",
+      "url": "static/pointclouds/c1_cecum_t1_v2_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c1_cecum_t1_v2.jpg",
       "points": 140000,
       "bytes": 2100180,
@@ -12,7 +12,7 @@
     {
       "id": "c1_sigmoid1_t1_v3",
       "label": "c1_sigmoid1_t1_v3",
-      "url": "static/pointclouds/c1_sigmoid1_t1_v3_ours_static.ply",
+      "url": "static/pointclouds/c1_sigmoid1_t1_v3_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c1_sigmoid1_t1_v3.jpg",
       "points": 140000,
       "bytes": 2100180,
@@ -21,7 +21,7 @@
     {
       "id": "c2_ascending_t1_v2",
       "label": "c2_ascending_t1_v2",
-      "url": "static/pointclouds/c2_ascending_t1_v2_ours_static.ply",
+      "url": "static/pointclouds/c2_ascending_t1_v2_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c2_ascending_t1_v2.jpg",
       "points": 140000,
       "bytes": 2100180,
@@ -30,7 +30,7 @@
     {
       "id": "c2_cecum_t1_v3",
       "label": "c2_cecum_t1_v3",
-      "url": "static/pointclouds/c2_cecum_t1_v3_ours_static.ply",
+      "url": "static/pointclouds/c2_cecum_t1_v3_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c2_cecum_t1_v3.jpg",
       "points": 140000,
       "bytes": 2100180,
@@ -39,7 +39,7 @@
     {
       "id": "c2_rectum_t1_v3",
       "label": "c2_rectum_t1_v3",
-      "url": "static/pointclouds/c2_rectum_t1_v3_ours_static.ply",
+      "url": "static/pointclouds/c2_rectum_t1_v3_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c2_rectum_t1_v3.jpg",
       "points": 140000,
       "bytes": 2100180,
@@ -48,7 +48,7 @@
     {
       "id": "c2_transverse2_t1_v3",
       "label": "c2_transverse2_t1_v3",
-      "url": "static/pointclouds/c2_transverse2_t1_v3_ours_static.ply",
+      "url": "static/pointclouds/c2_transverse2_t1_v3_ours_static.ply?v=rgb-6dcf8ae",
       "thumb": "static/images/sequence-thumbs/c2_transverse2_t1_v3.jpg",
       "points": 140000,
       "bytes": 2100180,
