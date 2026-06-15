@@ -127,18 +127,15 @@
       <div class="container">
         <h2>Interactive 3D Demo</h2>
         <p class="section-lead">
-          Explore the c2_cecum_t1_v3 point clouds used for the progressive quad-3D demo. Drag to rotate, scroll to zoom, and toggle layers.
+          Colored Ours reconstruction from the c2_cecum_t1_v3 progressive quad-3D demo.
         </p>
         <div class="viewer-shell">
-          <div class="viewer-toolbar" aria-label="3D point cloud controls">
-            <button class="viewer-chip" type="button" data-cloud="c2_cecum_t1_v3-gt-sampled">GT 3D</button>
-            <button class="viewer-chip active" type="button" data-cloud="c2_cecum_t1_v3-base-static">Base 3D</button>
-            <button class="viewer-chip active" type="button" data-cloud="c2_cecum_t1_v3-ours-static">Ours 3D</button>
-            <button class="viewer-chip" type="button" data-cloud="c2_cecum_t1_v3-ours-transient">Transient</button>
-            <button class="viewer-chip" type="button" data-cloud="c2_cecum_t1_v3-trajectory">Trajectory</button>
-          </div>
           <div id="viewer3d-root" class="viewer3d-root" role="img" aria-label="Interactive 3D point cloud viewer">
-            <div class="viewer-status">Loading point clouds...</div>
+            <div class="viewer-overlay">
+              <span>Ours colored point cloud</span>
+              <strong>c2_cecum_t1_v3</strong>
+            </div>
+            <div class="viewer-status">Loading reconstruction...</div>
           </div>
         </div>
       </div>

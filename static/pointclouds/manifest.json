@@ -1,48 +1,12 @@
 {
   "clouds": [
     {
-      "key": "base-static",
-      "label": "Base 3D",
-      "url": "static/pointclouds/c2_cecum_t1_v3_base_static.ply",
-      "kind": "static",
-      "points": 140000,
-      "bytes": 2100180,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VD_base/c2_cecum_t1_v3/params.npz"
-    },
-    {
       "key": "ours-static",
-      "label": "Ours 3D",
+      "label": "Ours colored point cloud",
       "url": "static/pointclouds/c2_cecum_t1_v3_ours_static.ply",
       "kind": "static",
       "points": 150000,
       "bytes": 2250180,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
-    },
-    {
-      "key": "ours-transient",
-      "label": "Ours transient",
-      "url": "static/pointclouds/c2_cecum_t1_v3_ours_transient.ply",
-      "kind": "transient",
-      "points": 90000,
-      "bytes": 1350179,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
-    },
-    {
-      "key": "gt-sampled",
-      "label": "GT 3D sampled",
-      "url": "static/pointclouds/c2_cecum_t1_v3_gt_sampled.ply",
-      "kind": "gt",
-      "points": 136080,
-      "bytes": 2041380,
-      "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/allcontaminationseq/c3vdv2/c2_cecum_t1_v3"
-    },
-    {
-      "key": "trajectory",
-      "label": "Camera trajectory",
-      "url": "static/pointclouds/c2_cecum_t1_v3_trajectory.ply",
-      "kind": "trajectory",
-      "points": 378,
-      "bytes": 5847,
       "source": "/media/nuo/hdd01/ubuntu_data/endogslamdata/experiments/C3VDV2_singleframe_standalone_20260227_013426/c2_cecum_t1_v3/params.npz"
     }
   ],
