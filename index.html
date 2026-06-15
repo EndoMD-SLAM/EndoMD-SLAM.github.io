@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="EndoMD-SLAM">
+  <meta name="description" content="Project page for EndoMD-SLAM: Endoscopic Gaussian Splatting SLAM under optical degradation with memory and static-transient decomposition.">
+  <meta name="keywords" content="EndoMD-SLAM, endoscopic SLAM, Gaussian Splatting, optical degradation, static-transient decomposition">
+  <meta name="author" content="Nuo Chen, Kangqi Ni, Lulin Liu, Joga Ivatury, Ying Ding, Farshid Alambeigi, Tianlong Chen, Zhiwen Fan">
+  <meta name="theme-color" content="#12333a">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="EndoMD-SLAM">
+  <meta property="og:title" content="EndoMD-SLAM">
+  <meta property="og:description" content="Robust online endoscopic reconstruction and tracking under optical degradations.">
+  <meta property="og:image" content="static/images/teaser.png">
+  <title>EndoMD-SLAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/site.css">
+</head>
+<body>
+  <button class="scroll-top" type="button" aria-label="Scroll to top">↑</button>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#top">EndoMD-SLAM</a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-section">
+      <div class="container hero-content">
+        <p class="venue-label">Project Page</p>
+        <h1>EndoMD-SLAM</h1>
+        <p class="hero-subtitle">
+          Endoscopic Gaussian Splatting SLAM under Optical Degradation with
+          Memory and Static-Transient Decomposition
+        </p>
+
+        <div class="authors">
+          <p>
+            Nuo Chen<sup>1*</sup>, Kangqi Ni<sup>2*</sup>, Lulin Liu<sup>1,3</sup>,
+            Joga Ivatury<sup>4</sup>, Ying Ding<sup>4</sup>, Farshid Alambeigi<sup>4</sup>,
+            Tianlong Chen<sup>2</sup>, Zhiwen Fan<sup>1†</sup>
+          </p>
+          <p class="affiliation">
+            <sup>1</sup>Texas A&amp;M University &nbsp;
+            <sup>2</sup>UNC Chapel Hill &nbsp;
+            <sup>3</sup>University of Minnesota &nbsp;
+            <sup>4</sup>UT Austin
+          </p>
+          <p class="author-notes">* Equal contribution. † Corresponding author.</p>
+        </div>
+
+        <div class="button-row" aria-label="Project links">
+          <a class="action-button primary" href="static/endomd-slam-paper.pdf">Paper</a>
+          <a class="action-button" href="https://github.com/EndoMD-SLAM">Code</a>
+          <a class="action-button" href="#citation">Cite</a>
+        </div>
+
+        <figure class="hero-figure">
+          <img src="static/images/teaser.png" alt="EndoMD-SLAM teaser showing robust SLAM under optical degradation">
+          <figcaption>
+            EndoMD-SLAM isolates optical degradations caused by contaminants and water flushing, preserving online tracking and clean dense anatomical reconstruction.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="media-section">
+      <div class="container narrow">
+        <video class="main-video" autoplay muted loop controls playsinline preload="metadata" poster="static/images/teaser.png">
+          <source src="static/videos/demo.mp4" type="video/mp4">
+        </video>
+        <p class="media-caption">Online reconstruction and tracking behavior under degraded endoscopic observations.</p>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p>
+          Dense 3D reconstruction is critical for clinical endoscopic navigation and documentation.
+          While Gaussian Splatting SLAM systems show promise in this domain, they rely on multi-view
+          photometric consistency, which is severely violated by intermittent optical degradations
+          such as moving debris and water flushing. Standard systems can fuse camera-attached
+          artifacts into persistent 3D geometry, causing tracking drift and irreversible map
+          corruption.
+        </p>
+        <p>
+          EndoMD-SLAM maintains stability under optical degradation with two coupled mechanisms:
+          a memory-driven gate that detects unreliable observations, suspends unsafe map updates,
+          and relocalizes from historical keyframes; and a self-supervised static-transient
+          decomposition that absorbs visual contaminants into a transient field while protecting the
+          persistent anatomical map. On a degradation-focused colonoscopy benchmark, EndoMD-SLAM
+          reduces absolute trajectory error by 91% and improves rendering fidelity by 9.9 dB PSNR.
+        </p>
+      </div>
+    </section>
+
+    <section class="section muted" id="method">
+      <div class="container">
+        <h2>Method</h2>
+        <figure class="paper-figure">
+          <img src="static/images/overview.png" alt="EndoMD-SLAM architecture overview">
+          <figcaption>
+            The reliability gate routes clean observations to standard tracking and static map updates.
+            Degraded frames activate temporal memory for relocalization and safe update gating, while
+            static-transient decomposition separates persistent anatomy from camera-attached artifacts.
+          </figcaption>
+        </figure>
+
+        <div class="feature-grid">
+          <article class="feature-item">
+            <span class="feature-kicker">01</span>
+            <h3>Temporal Memory</h3>
+            <p>Stores reliable keyframes, retrieves recovery candidates, and relocalizes after degraded intervals.</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-kicker">02</span>
+            <h3>Safe Mapping</h3>
+            <p>Suspends static Gaussian updates when tracking evidence is unreliable, preventing map corruption.</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-kicker">03</span>
+            <h3>Decomposition</h3>
+            <p>Separates static anatomy from transient lens artifacts using a self-supervised two-field representation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <h2>Results</h2>
+        <p class="section-lead">
+          EndoMD-SLAM is evaluated on a degradation-focused C3VDv2 benchmark containing sequences tagged with water and debris on lens.
+        </p>
+
+        <div class="table-wrap" role="region" aria-label="Main quantitative results" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>PSNR ↑</th>
+                <th>SSIM ↑</th>
+                <th>LPIPS ↓</th>
+                <th>RMSE (mm) ↓</th>
+                <th>ATE (mm) ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MonoGS</td>
+                <td>6.39</td>
+                <td>0.298</td>
+                <td>0.681</td>
+                <td>35.92</td>
+                <td>15.88</td>
+              </tr>
+              <tr>
+                <td>EndoGSLAM</td>
+                <td>8.16</td>
+                <td>0.335</td>
+                <td>0.628</td>
+                <td>26.21</td>
+                <td>35.91</td>
+              </tr>
+              <tr>
+                <td>NICE-SLAM</td>
+                <td>14.20</td>
+                <td>0.406</td>
+                <td>0.725</td>
+                <td>20.01</td>
+                <td>13.57</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>EndoMD-SLAM</td>
+                <td>18.06</td>
+                <td>0.606</td>
+                <td>0.416</td>
+                <td>7.22</td>
+                <td>3.02</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-grid">
+          <figure>
+            <img src="static/images/metrics.png" alt="Metric comparison plot">
+            <figcaption>Benchmark metrics across tracking and reconstruction quality.</figcaption>
+          </figure>
+          <figure>
+            <img src="static/images/traj.png" alt="Trajectory comparison plot">
+            <figcaption>Trajectory recovery behavior on degraded endoscopic sequences.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted" id="qualitative">
+      <div class="container">
+        <h2>Qualitative Analysis</h2>
+        <div class="frame-strip" aria-label="Degraded endoscopic input frames">
+          <img src="static/images/frame-degraded-1.jpg" alt="Degraded endoscopic frame with lens artifact">
+          <img src="static/images/frame-degraded-2.jpg" alt="Degraded endoscopic frame during optical obstruction">
+          <img src="static/images/frame-degraded-3.jpg" alt="Degraded endoscopic frame after flushing">
+        </div>
+
+        <figure class="paper-figure">
+          <img src="static/images/decomposition.png" alt="Static-transient decomposition qualitative results">
+          <figcaption>
+            Static-transient decomposition absorbs optical degradations into the transient field and preserves a clean static anatomical reconstruction.
+          </figcaption>
+        </figure>
+
+        <div class="result-grid wide">
+          <figure>
+            <img src="static/images/trajectory_comparison.png" alt="Estimated camera trajectories compared with ground truth">
+            <figcaption>Temporal memory enables relocalization and prevents long-term trajectory divergence.</figcaption>
+          </figure>
+          <figure>
+            <img src="static/images/reconstruction_3d.png" alt="3D reconstruction comparison under severe lens contamination">
+            <figcaption>Safe update gating and decomposition preserve coherent 3D anatomy under contamination.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quickstart">
+      <div class="container narrow">
+        <h2>Quick Start</h2>
+        <pre><code>conda create -n endomd-slam python=3.10 -y
+conda activate endomd-slam
+pip install -r requirements.txt
+
+python scripts/run_endomd_slam.py configs/c3vd/endomd_slam_c3vdv2.py \
+  --basedir data/C3VDv2 \
+  --sequence c1_cecum_t1_v2 \
+  --workdir outputs/endomd_slam_c3vdv2 \
+  --run_name c1_cecum_t1_v2</code></pre>
+      </div>
+    </section>
+
+    <section class="section muted" id="citation">
+      <div class="container narrow">
+        <h2>Citation</h2>
+        <pre><code>@article{endomdslam2026,
+  title={EndoMD-SLAM: Endoscopic Gaussian Splatting SLAM under Optical Degradation with Memory and Static-Transient Decomposition},
+  author={Chen, Nuo and Ni, Kangqi and Liu, Lulin and Ivatury, Joga and Ding, Ying and Alambeigi, Farshid and Chen, Tianlong and Fan, Zhiwen},
+  journal={Manuscript},
+  year={2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>EndoMD-SLAM project page.</p>
+    </div>
+  </footer>
+
+  <script src="static/js/site.js"></script>
+</body>
+</html>
