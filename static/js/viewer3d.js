@@ -304,7 +304,7 @@ class EndoViewer {
       const geometry = await this.loadPly(sceneMeta.url);
       geometry.computeBoundingBox();
       const material = new THREE.PointsMaterial({
-        size: 0.24,
+        size: 0.48,
         vertexColors: true,
         sizeAttenuation: true,
       });
