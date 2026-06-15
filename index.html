@@ -132,33 +132,20 @@
 
     <section class="section muted" id="method">
       <div class="container">
-        <h2>Method</h2>
+        <h2>Methodology</h2>
         <figure class="paper-figure">
           <img src="static/images/overview.png" alt="EndoMD-SLAM architecture overview">
           <figcaption>
-            The reliability gate routes clean observations to standard tracking and static map updates.
-            Degraded frames activate temporal memory for relocalization and safe update gating, while
-            static-transient decomposition separates persistent anatomy from camera-attached artifacts.
+            <strong>Overview of the EndoMD-SLAM architecture.</strong> Input frames are first evaluated by a reliability gate.
+            Non-degraded observations proceed to tracking optimization and update the global static map.
+            Degraded frames activate the temporal memory, which queries a keyframe memory bank to perform
+            drift-aware relocalization while safely suspending static map updates. Concurrently, a
+            static-transient decomposition explicitly factorizes the scene. It absorbs camera-attached
+            occluders into a per-view transient field, thereby protecting the persistent anatomy within
+            the global static field. The static and transient renders are finally alpha-blended to
+            reconstruct the degraded observation and compute the loss against the ground truth.
           </figcaption>
         </figure>
-
-        <div class="feature-grid">
-          <article class="feature-item">
-            <span class="feature-kicker">01</span>
-            <h3>Temporal Memory</h3>
-            <p>Stores reliable keyframes, retrieves recovery candidates, and relocalizes after degraded intervals.</p>
-          </article>
-          <article class="feature-item">
-            <span class="feature-kicker">02</span>
-            <h3>Safe Mapping</h3>
-            <p>Suspends static Gaussian updates when tracking evidence is unreliable, preventing map corruption.</p>
-          </article>
-          <article class="feature-item">
-            <span class="feature-kicker">03</span>
-            <h3>Decomposition</h3>
-            <p>Separates static anatomy from transient lens artifacts using a self-supervised two-field representation.</p>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -169,155 +156,26 @@
           EndoMD-SLAM is evaluated on a degradation-focused C3VDv2 benchmark containing sequences tagged with water and debris on lens.
         </p>
 
-        <div class="table-wrap" role="region" aria-label="Table 1 main quantitative results" tabindex="0">
-          <table>
-            <caption>Table 1. Main results on the degradation-focused benchmark.</caption>
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>PSNR ↑</th>
-                <th>SSIM ↑</th>
-                <th>LPIPS ↓</th>
-                <th>RMSE (mm) ↓</th>
-                <th>ATE (mm) ↓</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MonoGS</td>
-                <td>6.39</td>
-                <td>0.298</td>
-                <td>0.681</td>
-                <td>35.92</td>
-                <td>15.88</td>
-              </tr>
-              <tr>
-                <td>EndoGSLAM</td>
-                <td>8.16</td>
-                <td>0.335</td>
-                <td>0.628</td>
-                <td>26.21</td>
-                <td>35.91</td>
-              </tr>
-              <tr>
-                <td>NICE-SLAM</td>
-                <td>14.20</td>
-                <td>0.406</td>
-                <td>0.725</td>
-                <td>20.01</td>
-                <td>13.57</td>
-              </tr>
-              <tr class="highlight-row">
-                <td>EndoMD-SLAM</td>
-                <td>18.06</td>
-                <td>0.606</td>
-                <td>0.416</td>
-                <td>7.22</td>
-                <td>3.02</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <figure class="paper-table-figure">
+          <img class="paper-table-image" src="static/images/table_main_results.png" alt="Table 1 main quantitative results on the degradation-focused benchmark">
+          <figcaption>
+            <strong>Table 1.</strong> Main results on degradation-focused benchmark. EndoMD-SLAM establishes a new state-of-the-art across all metrics under severe optical degradation. Best results are highlighted in bold.
+          </figcaption>
+        </figure>
 
-        <div class="table-wrap stacked" role="region" aria-label="Table 2 ablation results" tabindex="0">
-          <table>
-            <caption>Table 2. Quantitative ablation of the proposed components.</caption>
-            <thead>
-              <tr>
-                <th>Baseline</th>
-                <th>Memory</th>
-                <th>Decomposition</th>
-                <th>PSNR ↑</th>
-                <th>SSIM ↑</th>
-                <th>LPIPS ↓</th>
-                <th>RMSE (mm) ↓</th>
-                <th>ATE (mm) ↓</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>✓</td>
-                <td></td>
-                <td></td>
-                <td>6.39</td>
-                <td>0.298</td>
-                <td>0.681</td>
-                <td>35.92</td>
-                <td>15.88</td>
-              </tr>
-              <tr>
-                <td>✓</td>
-                <td></td>
-                <td>✓</td>
-                <td>7.79</td>
-                <td>0.226</td>
-                <td>0.671</td>
-                <td>28.58</td>
-                <td>36.23</td>
-              </tr>
-              <tr>
-                <td>✓</td>
-                <td>✓</td>
-                <td></td>
-                <td>16.21</td>
-                <td>0.571</td>
-                <td>0.421</td>
-                <td>7.11</td>
-                <td>3.04</td>
-              </tr>
-              <tr class="highlight-row">
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>18.06</td>
-                <td>0.606</td>
-                <td>0.416</td>
-                <td>7.22</td>
-                <td>3.02</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <figure class="paper-table-figure">
+          <img class="paper-table-image" src="static/images/table_ablation.png" alt="Table 2 quantitative ablation of the proposed components">
+          <figcaption>
+            <strong>Table 2.</strong> Quantitative ablation of our proposed components. Both the temporal memory and spatial decomposition modules are critical for maximizing tracking robustness and rendering fidelity. Best results are highlighted in bold.
+          </figcaption>
+        </figure>
 
-        <div class="table-wrap stacked compact-table" role="region" aria-label="Runtime efficiency table" tabindex="0">
-          <table>
-            <caption>Table 3. Runtime efficiency.</caption>
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>Throughput (FPS) ↑</th>
-                <th>Tracking Time (s/frame) ↓</th>
-                <th>Mapping Time (s/frame) ↓</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MonoGS</td>
-                <td>0.25</td>
-                <td>1.807</td>
-                <td>2.139</td>
-              </tr>
-              <tr>
-                <td>EndoGSLAM</td>
-                <td>0.65</td>
-                <td>0.574</td>
-                <td>0.973</td>
-              </tr>
-              <tr>
-                <td>NICE-SLAM</td>
-                <td>0.20</td>
-                <td>0.195</td>
-                <td>4.814</td>
-              </tr>
-              <tr class="highlight-row">
-                <td>EndoMD-SLAM</td>
-                <td>0.95</td>
-                <td>0.170</td>
-                <td>0.874</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <figure class="paper-table-figure">
+          <img class="paper-table-image" src="static/images/table_runtime.png" alt="Table 3 runtime efficiency">
+          <figcaption>
+            <strong>Table 3.</strong> Runtime efficiency. Evaluated on an NVIDIA RTX A6000 server at identical input resolutions. By explicitly gating map updates and preventing the generation of redundant transient geometry, EndoMD-SLAM achieves the highest overall throughput and fastest mapping speed. Best results are highlighted in bold.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -331,14 +189,24 @@
           </figcaption>
         </figure>
 
-        <div class="result-grid wide">
+        <div class="result-grid wide equal-height">
           <figure>
-            <img src="static/images/trajectory_comparison.png" alt="Estimated camera trajectories compared with ground truth">
-            <figcaption>Temporal memory enables relocalization and prevents long-term trajectory divergence.</figcaption>
+            <div class="qualitative-media">
+              <img src="static/images/trajectory_comparison.png" alt="Estimated camera trajectories compared with ground truth">
+            </div>
+            <figcaption>
+              <strong>Qualitative comparison of estimated camera trajectories across diverse colonoscopy sequences.</strong>
+              EndoMD-SLAM maintains robust and accurate pose estimation that tightly aligns with the Ground Truth.
+            </figcaption>
           </figure>
           <figure>
-            <img src="static/images/reconstruction_3d.png" alt="3D reconstruction comparison under severe lens contamination">
-            <figcaption>Safe update gating and decomposition preserve coherent 3D anatomy under contamination.</figcaption>
+            <div class="qualitative-media">
+              <img src="static/images/reconstruction_3d.png" alt="3D reconstruction comparison under severe lens contamination">
+            </div>
+            <figcaption>
+              <strong>Qualitative 3D reconstruction of global colon anatomy under severe lens contamination.</strong>
+              EndoMD-SLAM preserves cohesive 3D anatomy and closely matches the Ground Truth.
+            </figcaption>
           </figure>
         </div>
       </div>
