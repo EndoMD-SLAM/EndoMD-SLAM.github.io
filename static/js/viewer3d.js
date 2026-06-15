@@ -37,6 +37,7 @@ if (root) {
 
   const materials = {
     static: new THREE.PointsMaterial({ size: 0.23, vertexColors: true, sizeAttenuation: true }),
+    gt: new THREE.PointsMaterial({ size: 0.2, vertexColors: true, sizeAttenuation: true }),
     transient: new THREE.PointsMaterial({ size: 0.28, vertexColors: true, sizeAttenuation: true, transparent: true, opacity: 0.82 }),
     trajectory: new THREE.PointsMaterial({ size: 0.75, vertexColors: true, sizeAttenuation: true }),
   };
