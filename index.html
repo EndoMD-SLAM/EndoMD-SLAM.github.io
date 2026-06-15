@@ -150,8 +150,9 @@
           EndoMD-SLAM is evaluated on a degradation-focused C3VDv2 benchmark containing sequences tagged with water and debris on lens.
         </p>
 
-        <div class="table-wrap" role="region" aria-label="Main quantitative results" tabindex="0">
+        <div class="table-wrap" role="region" aria-label="Table 1 main quantitative results" tabindex="0">
           <table>
+            <caption>Table 1. Main results on the degradation-focused benchmark.</caption>
             <thead>
               <tr>
                 <th>Method</th>
@@ -199,15 +200,104 @@
           </table>
         </div>
 
-        <div class="result-grid">
-          <figure>
-            <img src="static/images/metrics.png" alt="Metric comparison plot">
-            <figcaption>Benchmark metrics across tracking and reconstruction quality.</figcaption>
-          </figure>
-          <figure>
-            <img src="static/images/traj.png" alt="Trajectory comparison plot">
-            <figcaption>Trajectory recovery behavior on degraded endoscopic sequences.</figcaption>
-          </figure>
+        <div class="table-wrap stacked" role="region" aria-label="Table 2 ablation results" tabindex="0">
+          <table>
+            <caption>Table 2. Quantitative ablation of the proposed components.</caption>
+            <thead>
+              <tr>
+                <th>Baseline</th>
+                <th>Memory</th>
+                <th>Decomposition</th>
+                <th>PSNR ↑</th>
+                <th>SSIM ↑</th>
+                <th>LPIPS ↓</th>
+                <th>RMSE (mm) ↓</th>
+                <th>ATE (mm) ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>✓</td>
+                <td></td>
+                <td></td>
+                <td>6.39</td>
+                <td>0.298</td>
+                <td>0.681</td>
+                <td>35.92</td>
+                <td>15.88</td>
+              </tr>
+              <tr>
+                <td>✓</td>
+                <td></td>
+                <td>✓</td>
+                <td>7.79</td>
+                <td>0.226</td>
+                <td>0.671</td>
+                <td>28.58</td>
+                <td>36.23</td>
+              </tr>
+              <tr>
+                <td>✓</td>
+                <td>✓</td>
+                <td></td>
+                <td>16.21</td>
+                <td>0.571</td>
+                <td>0.421</td>
+                <td>7.11</td>
+                <td>3.04</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>18.06</td>
+                <td>0.606</td>
+                <td>0.416</td>
+                <td>7.22</td>
+                <td>3.02</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap stacked compact-table" role="region" aria-label="Runtime efficiency table" tabindex="0">
+          <table>
+            <caption>Table 3. Runtime efficiency.</caption>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Throughput (FPS) ↑</th>
+                <th>Tracking Time (s/frame) ↓</th>
+                <th>Mapping Time (s/frame) ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MonoGS</td>
+                <td>0.25</td>
+                <td>1.807</td>
+                <td>2.139</td>
+              </tr>
+              <tr>
+                <td>EndoGSLAM</td>
+                <td>0.65</td>
+                <td>0.574</td>
+                <td>0.973</td>
+              </tr>
+              <tr>
+                <td>NICE-SLAM</td>
+                <td>0.20</td>
+                <td>0.195</td>
+                <td>4.814</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>EndoMD-SLAM</td>
+                <td>0.95</td>
+                <td>0.170</td>
+                <td>0.874</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -215,12 +305,6 @@
     <section class="section muted" id="qualitative">
       <div class="container">
         <h2>Qualitative Analysis</h2>
-        <div class="frame-strip" aria-label="Degraded endoscopic input frames">
-          <img src="static/images/frame-degraded-1.jpg" alt="Degraded endoscopic frame with lens artifact">
-          <img src="static/images/frame-degraded-2.jpg" alt="Degraded endoscopic frame during optical obstruction">
-          <img src="static/images/frame-degraded-3.jpg" alt="Degraded endoscopic frame after flushing">
-        </div>
-
         <figure class="paper-figure">
           <img src="static/images/decomposition.png" alt="Static-transient decomposition qualitative results">
           <figcaption>
