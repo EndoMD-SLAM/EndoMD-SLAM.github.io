@@ -185,7 +185,12 @@
         <figure class="paper-figure">
           <img src="static/images/decomposition.png" alt="Static-transient decomposition qualitative results">
           <figcaption>
-            Static-transient decomposition absorbs optical degradations into the transient field and preserves a clean static anatomical reconstruction.
+            <strong>Qualitative comparison of novel view synthesis and field decomposition under severe optical degradation.</strong>
+            Standard baselines (EndoGSLAM, MonoGS, NICE-SLAM) exhibit prominent rendering artifacts
+            and geometric distortions under degraded visual evidence. EndoMD-SLAM explicitly
+            factorizes the scene via a static-transient decomposition. The transient field
+            (Ours-transient) absorbs optical degradations, yielding a clean anatomical map
+            (Ours-static), while the blended output (Ours-blend) reconstructs the degraded observation.
           </figcaption>
         </figure>
 
@@ -196,7 +201,13 @@
             </div>
             <figcaption>
               <strong>Qualitative comparison of estimated camera trajectories across diverse colonoscopy sequences.</strong>
-              EndoMD-SLAM maintains robust and accurate pose estimation that tightly aligns with the Ground Truth.
+              Under severe lens contamination, the baseline method (blue dashed lines) experiences
+              catastrophic tracking drift and frequent localization failures due to the sudden loss of
+              visual continuity. In contrast, EndoMD-SLAM (red solid lines) maintains robust and
+              accurate pose estimation that tightly aligns with the Ground Truth (black solid lines).
+              By leveraging our temporal memory to gate map updates and perform failure-aware
+              relocalization, our system successfully recovers from highly degraded intervals and
+              prevents long-term trajectory divergence.
             </figcaption>
           </figure>
           <figure>
@@ -205,7 +216,12 @@
             </div>
             <figcaption>
               <strong>Qualitative 3D reconstruction of global colon anatomy under severe lens contamination.</strong>
-              EndoMD-SLAM preserves cohesive 3D anatomy and closely matches the Ground Truth.
+              The top row (EndoGSLAM) exhibits catastrophic structural breakdown and geometric
+              distortion caused by the naive fusion of transient artifacts and tracking drift.
+              Conversely, EndoMD-SLAM (middle row) successfully preserves the cohesive 3D anatomy,
+              closely matching the Ground Truth (bottom row). This demonstrates the effectiveness of
+              our memory and decomposition mechanisms in isolating contamination and gating erroneous
+              map updates.
             </figcaption>
           </figure>
         </div>
